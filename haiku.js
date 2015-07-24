@@ -10,9 +10,9 @@ var dictionary = fs.readFileSync('cmudict.txt').toString();
 
 dictionary = dictionary.split('\n');
 
-countSyllables(5);
-countSyllables(7);
-countSyllables(5);
+console.log(countSyllables(2) + " " + countSyllables(3));
+console.log(countSyllables(1) + " " + countSyllables(3) + " " + countSyllables(3));
+console.log(countSyllables(3) + " " + countSyllables(2));
 
 
 function countSyllables(num){
@@ -28,6 +28,6 @@ function countSyllables(num){
 	}
 
 	var rand = Math.ceil(Math.random()*tempArray.length);
-	console.log(tempArray[rand]);
+	return tempArray[rand];
 
 }
