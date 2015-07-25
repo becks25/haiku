@@ -16,10 +16,12 @@ console.log(countSyllables(3) + " " + countSyllables(2));
 
 
 function countSyllables(num){
-	var letters = /\d+/g;
+	var number = /\d+/g;
+	var parenthesis = /(\d+)/;
+
 	var tempArray = [];
 	for(var i = 0; i<dictionary.length; i++){
-		var temp = dictionary[i].match(letters);
+		var temp = dictionary[i].match(number);
 		if(temp !== null){
 			if(temp.length === num){
 				tempArray.push(dictionary[i].split('  ')[0]);
@@ -27,6 +29,12 @@ function countSyllables(num){
 		}
 	}
 
+	for(var i = 0; i<tempArray.length; i++){
+		var find = tempArray[i].search(parenthesis);
+		if(find !== -1){
+			tempArray[i] = tempArray[i].slice(0, -3);
+		}
+	}
 	var rand = Math.ceil(Math.random()*tempArray.length);
 	return tempArray[rand];
 
